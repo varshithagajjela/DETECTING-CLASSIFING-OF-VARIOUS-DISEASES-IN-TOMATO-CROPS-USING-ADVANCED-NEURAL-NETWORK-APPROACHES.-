@@ -1,0 +1,75 @@
+body {
+  margin: 0; 
+  padding: 0;
+  background-image: url("leaf.jpg");
+  background-size: cover;
+}
+.down{
+  border-style: solid;
+  border-color: blue;
+  border-radius: 1cm;
+}
+.box{
+  padding: 0.5cm;
+  margin-right: 10cm;
+  margin-left: 10cm;
+  margin-top: 40px;
+  border-radius: 0.5cm;
+  text-align: center;
+  background-color: rgb(206, 230, 182);
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.image-upload {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#imageInput {
+  margin-right: 10px;
+  font-size: 20px;
+  border-radius: 0.2cm;
+}
+
+#predictButton {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 0.2cm;
+}
+
+.prediction-results {
+  width: 100%;
+  text-align: left;
+}
+
+#predictedCategory {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#causesList {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.total{
+  
+}

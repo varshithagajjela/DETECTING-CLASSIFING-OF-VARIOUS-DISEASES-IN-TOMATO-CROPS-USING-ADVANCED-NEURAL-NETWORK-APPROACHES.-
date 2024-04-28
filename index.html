@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<head>
+    <title>Leaf Disease Classification</title>
+    <style>
+        .total {
+            text-align: center;
+            margin-top: 20px;
+        }
+        body {
+        background-image: url("{{background_image}}");
+        background-size: cover;
+        }
+
+        .down {
+            margin-left: 5cm;
+            margin-right: 5cm;
+            border-style: solid;
+            border-color: black;
+            background-color: rgb(174, 240, 130);
+            border-radius: 10px;
+        }
+
+        .box {
+            padding: 0.5cm;
+            margin-right: 10cm;
+            margin-left: 10cm;
+            margin-top: 10px;
+            border-radius: 0.5cm;
+            text-align: center;
+            font-size: 25px;
+            border-style: solid;
+            background-color:rgb(176, 225, 116);
+        }
+
+        .container {
+            background-color: rgb(98, 244, 95);
+            border-style: solid;
+            margin-right: 4cm;
+            margin-left: 4cm;
+            border-radius: 5px;
+            display: grid; /* Use CSS Grid */
+            grid-template-columns: 1fr 1fr; /* Two columns, equal width */
+            grid-gap: 20px; /* Adjust the gap as needed */
+        }
+
+        .image-container {
+            text-align: center;
+            margin-top: 1cm;
+        }
+
+        .table-container {
+            text-align: left;
+        }
+
+        .image-upload {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        #imageInput {
+            margin-right: 10px;
+            font-size: 20px;
+            border-radius: 0.2cm;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        #predictButton {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 0.2cm;
+        }
+
+        .prediction-results {
+            width: 100%;
+            text-align: left;
+        }
+
+        #predictedCategory {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 75%;
+            background-color: whitesmoke;
+        }
+
+        table, th, td {
+            border:1px solid black;
+        }
+
+        td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        #causesList {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #hh1 {
+            border-style: solid;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: rgb(164, 216, 156);
+        }
+        #image1{
+            border-radius: 4px;
+        }
+        #temp{
+            color: red;
+        }
+    </style>
+</head>
+<body >
+    <div class="total">
+        <h1><span id="hh1">Tomato Leaf Disease Detection</span></h1>
+    </div>
+    <div class="box">
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <b>Upload the Image of the Leaf </b>
+            <input id="imageInput" type="file" name="file">
+            <br><br>
+            <input id="predictButton" type="submit" value="Detect Disease">
+        </form>
+    </div>
+    <br>
+    <div class="container"> 
+        <div class ="image-container">
+            {% if result %}
+            <img src="/uploaded_image.jpg" width="300px" height="400px" id="image1">
+            <h1>Result: <span id="temp">{{ result }}</span></h1>
+        </div>
+    <div class="table-container">
+        <h2>About  <b> {{result}}</b></h2>
+        <table id =" tab">
+            {% for diseases in disease %}
+            <tr>
+                <td>{{ diseases }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h2>Diagnosis for the Disease</h2>
+        <table>
+            {% for diseases in solution %}
+            <tr>
+                <td>{{ diseases }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+    </div>
+    </div>
+</body>
+</html>
